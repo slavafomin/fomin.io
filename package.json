@@ -1,0 +1,33 @@
+{
+  "name": "fomin.io",
+  "version": "1.0.0",
+  "author": "Slava Fomin II <slava@fomin.io>",
+  "private": true,
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "clean-webpack-plugin": "^0.1.17",
+    "css-loader": "^0.28.7",
+    "eslint": "^4.8.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^1.1.3",
+    "gh-pages": "^1.0.0",
+    "html-loader": "^0.5.1",
+    "html-webpack-plugin": "^2.30.1",
+    "style-loader": "^0.18.2",
+    "uglifyjs-webpack-plugin": "^0.4.6",
+    "webpack": "^3.6.0",
+    "webpack-config-utils": "^2.3.0",
+    "webpack-dev-server": "^2.9.1",
+    "webpack-merge": "^4.1.0"
+  },
+  "scripts": {
+    "build": "NODE_ENV=production webpack",
+    "start": "webpack-dev-server --open",
+    "deploy": "yarn build && gh-pages -d ./dist"
+  },
+  "dependencies": {
+    "font-awesome": "^4.7.0"
+  }
+}

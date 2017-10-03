@@ -2,6 +2,7 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 const {getIfUtils, removeEmpty} = require('webpack-config-utils');
@@ -98,11 +99,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'index.html'
     }),
-    ifNotProduction(new webpack.HotModuleReplacementPlugin()),
     new ExtractTextPlugin(ifProduction(
       '[name].[chunkhash].css',
       '[name].css'
     )),
+    ifProduction(new OptimizeCssAssetsPlugin()),
+    ifNotProduction(new webpack.HotModuleReplacementPlugin()),
     ifProduction(new UglifyJSPlugin())
   ]),
   output: {
